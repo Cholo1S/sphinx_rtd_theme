@@ -16,21 +16,16 @@ module.exports = merge(common, {
   devServer: {
     contentBase: "docs/build/html",
     port: 1919,
-    open: false,
-    hot: false,
+    open: true,
+    hot: true,
     liveReload: true,
     publicPath: "/_static/",
     disableHostCheck: true,
     headers: {
-      "Access-Control-Allow-Origin": "*"
+      "": "*"
     }
-  },
-  plugins: [
-    new WatchPlugin({
-      files: ["./docs/**/*.rst", "./docs/**/*.py"]
+  }
     }),
-    new ShellPlugin({
-      onBuildStart: ["make -C docs clean html"],
     })
   ]
 });
